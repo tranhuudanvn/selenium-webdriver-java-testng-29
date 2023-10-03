@@ -23,6 +23,7 @@ public class Topic_07_WebElement_Commands_02 {
     @Test
     public void TC_01_Displayed() {
         driver.get("https://automationfc.github.io/basic-form/index.html");
+
         if (driver.findElement(By.cssSelector("#mail")).isDisplayed()) {
             driver.findElement(By.cssSelector("#mail")).sendKeys("Automation Testing");
             System.out.println("Email Textbox is displayed");
