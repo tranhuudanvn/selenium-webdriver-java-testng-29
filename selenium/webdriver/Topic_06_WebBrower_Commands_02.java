@@ -34,7 +34,7 @@ public class Topic_06_WebBrower_Commands_02 {
         sleepInseconds(3);
 
         Assert.assertEquals(driver.getCurrentUrl(), "http://live.techpanda.org/index.php/customer/account/create/");
-
+        //
     }
 
     @Test
