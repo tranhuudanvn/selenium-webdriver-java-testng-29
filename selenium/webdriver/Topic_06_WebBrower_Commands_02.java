@@ -38,7 +38,7 @@ public class Topic_06_WebBrower_Commands_02 {
     }
 
     @Test
-    public void TC_02_Url() {
+    public void Login_02_Invalid_Email() {
         driver.get("http://live.techpanda.org/");
 
         driver.findElement(By.cssSelector(".footer a[title='My Account']")).click();
@@ -54,7 +54,7 @@ public class Topic_06_WebBrower_Commands_02 {
     }
 
     @Test
-    public void TC_03_Url() {
+    public void Login_03_Invalid_Password() {
         driver.get("http://live.techpanda.org/");
 
         driver.findElement(By.cssSelector(".footer a[title='My Account']")).click();
@@ -76,7 +76,22 @@ public class Topic_06_WebBrower_Commands_02 {
     }
 
     @Test
-    public void TC_04_Url() {
+    public void Login_04_Incorrect_Email_Or_Password() {
+        driver.get("http://live.techpanda.org/");
+
+        driver.findElement(By.cssSelector(".footer a[title='My Account']")).click();
+        sleepInseconds(3);
+
+        Assert.assertTrue(driver.getPageSource().contains("Login or Create an Account"));
+
+        driver.findElement(By.xpath("//a[@title='Create an Account']")).click();
+        sleepInseconds(3);
+
+        Assert.assertTrue(driver.getPageSource().contains("Create an Account"));
+
+    }
+    @Test
+    public void Login_05_Success() {
         driver.get("http://live.techpanda.org/");
 
         driver.findElement(By.cssSelector(".footer a[title='My Account']")).click();

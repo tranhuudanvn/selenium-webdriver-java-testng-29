@@ -3,6 +3,7 @@ package webdriver;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -26,7 +27,7 @@ public class Topic_01_Check_Environment {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("https://www.facebook.com/");
+        //driver.get("https://www.facebook.com/");
     }
 
     @Test
@@ -42,8 +43,16 @@ public class Topic_01_Check_Environment {
     @Test
     public void TC_03_Form() {
         Assert.assertTrue(driver.findElement(By.xpath("//form[@data-testid='royal_login_form']")).isDisplayed());
+        driver.findElement(By.id("")).isSelected();
+        driver.manage().window().getSize();
     }
-
+    @Test
+    public void TC_04_getText() {
+        driver.get("https://automationfc.github.io/basic-form/");
+        String text = driver.findElement(By.id("nested")).getText();
+        System.out.println(text);
+        Assert.assertEquals(text, "Hello World! (Ignore Me) @04:45 PM");
+    }
     @AfterClass
     public void afterClass() {
         driver.quit();
